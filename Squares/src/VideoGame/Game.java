@@ -2,6 +2,7 @@ package VideoGame;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
@@ -63,7 +64,7 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
-
+	public int frames = 0;
 	
 	public void run() {
 		this.requestFocus();
@@ -76,7 +77,7 @@ public class Game extends Canvas implements Runnable{
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
-			int frames = 0;
+			
 			while (delta >= 1) {
 				tick();
 				delta--;
@@ -135,6 +136,14 @@ public class Game extends Canvas implements Runnable{
 			menu.render(g);
 		}
 		
+		int timer = 1000;
+		if(timer == 0) {
+			g.setFont(new Font("arial", 0, 12));
+			g.drawString("FPS: " + frames, 900, 15);
+		}
+		else {
+			timer--;
+		}
 		
 		g.dispose();
 		bs.show();
