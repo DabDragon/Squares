@@ -136,14 +136,11 @@ public class Game extends Canvas implements Runnable{
 			menu.render(g);
 		}
 		
-		int timer = 1000;
-		if(timer == 0) {
-			g.setFont(new Font("arial", 0, 12));
-			g.drawString("FPS: " + frames, 900, 15);
-		}
-		else {
-			timer--;
-		}
+		
+		g.setFont(new Font("arial", 0, 12));
+		g.drawString("FPS: " + frames, 900, 15);
+		
+		
 		
 		g.dispose();
 		bs.show();
