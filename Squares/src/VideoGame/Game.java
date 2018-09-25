@@ -30,12 +30,12 @@ public class Game extends Canvas implements Runnable{
 	public Game() {
 		handler = new Handler();
 		menu = new Menu(this, handler);
+		hud = new HUD();
 		shop = new Shop(handler, hud);
 		this.addKeyListener(new KeyInput(handler));
 		this.addMouseListener(menu);
 		this.addMouseListener(shop);
 		new Window(WIDTH, HEIGHT, "Squares", this);
-		hud = new HUD();
 		spawner = new Spawn(handler, menu, this);
 	}
 	public synchronized void start() {
