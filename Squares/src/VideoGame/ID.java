@@ -1,7 +1,5 @@
 package VideoGame;
-
 public enum ID {
-
 	Player(),
 	BasicEnemy(),
 	ReversePlayer(),
@@ -10,8 +8,6 @@ public enum ID {
 	EnemyBoss(),
 	MenuParticle(),
 	Trail(), 
-	PowerUp,
 	MirrorXPlayer, 
 	MirrorYPlayer;
-	
 }

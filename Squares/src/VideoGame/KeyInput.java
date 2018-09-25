@@ -1,30 +1,21 @@
 package VideoGame;
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import VideoGame.Game.STATE;
-
 public class KeyInput extends KeyAdapter{
-
 	private Handler handler;
 	private boolean[] keyDown = new boolean[4];
-	
 	public KeyInput(Handler handler) {
-		this.handler = handler;
-		
+		this.handler = handler;	
 		keyDown[0] = false;
 		keyDown[1] = false;
 		keyDown[2] = false;
 		keyDown[3] = false;
 	}
-	
 	public void keyPressed(KeyEvent e) {
-		int key = e.getKeyCode();
-		
+		int key = e.getKeyCode();	
 		for(int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			
 			if(tempObject.getId() == ID.Player) {
 				if(key == KeyEvent.VK_W || key == KeyEvent.VK_UP) {tempObject.setVelY(-handler.speed); keyDown[0] = true;}
 				if(key == KeyEvent.VK_S || key == KeyEvent.VK_DOWN) {tempObject.setVelY(handler.speed); keyDown[1] = true;}

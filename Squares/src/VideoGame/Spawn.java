@@ -1,24 +1,17 @@
 package VideoGame;
-
 import java.util.Random;
-
 import VideoGame.Game.STATE;
-
 public class Spawn {
-
 	private Handler handler;
 	private Random r = new Random();
 	private Menu menu;
 	private Game game;
-	
 	public static int scoreKeep = 0;
-	
 	public Spawn(Handler handler, Menu menu, Game game) {
 		this.handler = handler;
 		this.menu = menu;
 		this.game = game;
 	}
-	
 	public void tick() {
 		scoreKeep++;
 		if(scoreKeep >= 1000) {
@@ -55,7 +48,6 @@ public class Spawn {
 				}
 				if(HUD.level == 13) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 				}
 				else if(HUD.level == 14) {
@@ -82,7 +74,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 23) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(8);
 					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -173,7 +164,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 31) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(8);
 					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -288,7 +278,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 43) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(8);
 					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -377,7 +366,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 13) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(4);
 					if(choice == 0) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -440,7 +428,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 23) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(4);
 					if(choice == 0) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -502,7 +489,6 @@ public class Spawn {
 				}
 				else if (HUD.level == 33) {
 					handler.clearAll();
-					handler.addObject(new PowerUp(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.PowerUp));
 					int choice = r.nextInt(4);
 					if(choice == 0) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 					else if(choice == 1) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
