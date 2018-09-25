@@ -1,29 +1,22 @@
 package VideoGame;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
-
 public class Game extends Canvas implements Runnable{
-	
 	private static final long serialVersionUID = 4074938860981483192L;
-
 	public static final int WIDTH = 960, HEIGHT = WIDTH / 12 * 9;
-	
 	private Thread thread;
 	private boolean running = false;
 	public int diff = 0;
-
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
 	private Menu menu;
 	private Shop shop;
 	Random r = new Random();
-	
 	public enum STATE {
 		Menu,
 		Select,
@@ -33,9 +26,7 @@ public class Game extends Canvas implements Runnable{
 		Finish,
 		End
 	};
-	
 	public static STATE gameState = STATE.Menu;
-	
 	public Game() {
 		handler = new Handler();
 		menu = new Menu(this, handler);
@@ -47,13 +38,11 @@ public class Game extends Canvas implements Runnable{
 		hud = new HUD();
 		spawner = new Spawn(handler, menu, this);
 	}
-	
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
-	
 	public synchronized void stop() {
 		try {
 			thread.join();
@@ -63,9 +52,7 @@ public class Game extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
 	public int frames = 0;
-	
 	public void run() {
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -77,7 +64,6 @@ public class Game extends Canvas implements Runnable{
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
-			
 			while (delta >= 1) {
 				tick();
 				delta--;
@@ -92,14 +78,11 @@ public class Game extends Canvas implements Runnable{
 		}
 		stop();
 	}
-	
 	private void tick() {
-		
 		if(gameState == STATE.Game) {
 			handler.tick();
 			hud.tick();
 			spawner.tick();
-			
 			if(HUD.HEALTH <= 0) {
 				gameState = STATE.End;
 				handler.object.clear();
@@ -109,21 +92,16 @@ public class Game extends Canvas implements Runnable{
 			handler.tick();
 			menu.tick();
 		}
-		
 	}
-	
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
 			this.createBufferStrategy(3);
 			return;
 		}
-		
 		Graphics g = bs.getDrawGraphics();
-		
 		g.setColor(Color.black);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
-		
 		if(gameState == STATE.Game) {
 			handler.render(g);
 			hud.render(g);
@@ -135,17 +113,11 @@ public class Game extends Canvas implements Runnable{
 			handler.render(g);
 			menu.render(g);
 		}
-		
-		
 		g.setFont(new Font("arial", 0, 12));
 		g.drawString("FPS: " + frames, 900, 15);
-		
-		
-		
 		g.dispose();
 		bs.show();
 	}
-	
 	public static float clamp(float var, float min, float max) {
 		if(var >= max) 
 			return var = max;
@@ -154,9 +126,7 @@ public class Game extends Canvas implements Runnable{
 		else 
 			return var;
 	}
-	
 	public static void main(String args[]) {
 		new Game();
-	}
-	
+	} 
 }

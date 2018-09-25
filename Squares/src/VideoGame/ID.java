@@ -10,6 +10,7 @@ public enum ID {
 	EnemyBoss(),
 	MenuParticle(),
 	Trail(), 
+	PowerUp,
 	MirrorXPlayer, 
 	MirrorYPlayer;
 	

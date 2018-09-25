@@ -25,13 +25,15 @@ public class Player extends GameObject{
 		y += velY;
 		
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
-		y = Game.clamp(y, 0, Game.HEIGHT - 64);
+		y = Game.clamp(y, 0, Game.HEIGHT - 67);
 		
 		if(menu.toggleTrails == true) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.08f, handler));
 
 		
 		collision();
 	}
+	
+	int timer = 100;
 	
 	private void collision() {
 		for(int i = 0; i < handler.object.size(); i++ ) {
@@ -44,6 +46,14 @@ public class Player extends GameObject{
 			if(tempObject.getId() == ID.EnemyBoss) {
 				if(getBounds().intersects(tempObject.getBounds())) {
 					HUD.HEALTH -= 1000;
+				}
+			}
+			if(tempObject.getId() == ID.PowerUp) {
+				if(getBounds().intersects(tempObject.getBounds())) {
+					handler.speed += 5;
+					handler.removeObject(tempObject);
+					timer--;
+					if(timer == 0) handler.speed -= 5;
 				}
 			}
 		}
