@@ -2,15 +2,15 @@ package VideoGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-public class HardFastEnemy extends GameObject{
+public class HardFastEnemy2 extends GameObject{
 	private Handler handler;
 	private Menu menu;
-	public HardFastEnemy(int x, int y, ID id, Handler handler, Menu menu) {
+	public HardFastEnemy2(int x, int y, ID id, Handler handler, Menu menu) {
 		super(x, y, id);
 		this.handler = handler;
 		this.menu = menu;
-			velX = 18;
-			velY = 4;
+			velX = 4;
+			velY = 18;
 	}
 	public Rectangle getBounds() {
 		return new Rectangle((int)x, (int)y, 16, 16);
