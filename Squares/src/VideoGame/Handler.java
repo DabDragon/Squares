@@ -19,7 +19,7 @@ public class Handler {
 	public synchronized void clearAll() {
 		for (int i = 0; i < this.object.size(); i++) {
             GameObject tempObject = this.object.get(i);
-            if (tempObject.getId() != ID.Player) {
+            if (tempObject.getId() != ID.Player || tempObject.getId() != ID.Player2) {
                 this.removeObject(tempObject);
                 i--;         
             }
