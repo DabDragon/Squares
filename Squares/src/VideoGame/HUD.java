@@ -10,6 +10,7 @@ public class HUD {
 	public static int level = 1;
 	public void tick() {
 		HEALTH = Game.clamp(HEALTH, 0, 100+(bounds/2));
+		HEALTH2 = Game.clamp(HEALTH2, 0, 100+(bounds/2));
 		greenValue = HEALTH*2;
 		greenValue = Game.clamp(greenValue, 0 , 255);
 		score++;
