@@ -2,10 +2,10 @@ package VideoGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-public class Player extends GameObject{
+public class Player2 extends GameObject{
 	Handler handler;
 	Menu menu;
-	public Player(int x, int y, ID id, Handler handler, Menu menu) {
+	public Player2(int x, int y, ID id, Handler handler, Menu menu) {
 		super(x, y, id);
 		this.handler = handler;
 		this.menu = menu;
@@ -19,8 +19,8 @@ public class Player extends GameObject{
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
 		y = Game.clamp(y, 0, Game.HEIGHT - 67);
 		if(menu.toggleTrails == true) {
-			if(HUD.HEALTH <= 0) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.black, 32, 32, 0.08f, handler));
-			else handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.08f, handler));
+			if(HUD.HEALTH2 <= 0) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.black, 32, 32, 0.08f, handler));
+			else handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.blue, 32, 32, 0.08f, handler));
 		}
 		collision();
 	}
@@ -30,19 +30,19 @@ public class Player extends GameObject{
 			GameObject tempObject = handler.object.get(i);
 			if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy || tempObject.getId() == ID.ReversePlayer || tempObject.getId() == ID.MirrorXPlayer || tempObject.getId() == ID.MirrorYPlayer) {
 				if(getBounds().intersects(tempObject.getBounds())) {
-					HUD.HEALTH--;
+					HUD.HEALTH2--;
 				}
 			}
 			if(tempObject.getId() == ID.EnemyBoss) {
 				if(getBounds().intersects(tempObject.getBounds())) {
-					HUD.HEALTH -= 1000;
+					HUD.HEALTH2 -= 1000;
 				}
 			}
 		}
 	}
 	public void render(Graphics g) {
-		g.setColor(Color.white);
-		if(HUD.HEALTH <= 0) g.setColor(Color.black);
+		g.setColor(Color.blue);
+		if(HUD.HEALTH2 <= 0) g.setColor(Color.black);
 		g.fillRect((int)x, (int)y, 32, 32);
 	}
 }

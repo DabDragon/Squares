@@ -78,14 +78,23 @@ public class Game extends Canvas implements Runnable{
 		}
 		stop();
 	}
+
 	private void tick() {
 		if(gameState == STATE.Game) {
 			handler.tick();
 			hud.tick();
 			spawner.tick();
-			if(HUD.HEALTH <= 0) {
-				gameState = STATE.End;
-				handler.object.clear();
+			if(Menu.multiplayer == false) {
+				if(HUD.HEALTH <= 0) {
+					gameState = STATE.End;
+					handler.object.clear();
+				}
+			}
+			if(Menu.multiplayer == true) {
+				if(HUD.HEALTH <= 0 && HUD.HEALTH2 <= 0) {
+					gameState = STATE.End;
+					handler.object.clear();
+				}
 			}
 		}
 		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.Select || gameState == STATE.End || gameState == STATE.Finish) {
@@ -114,7 +123,7 @@ public class Game extends Canvas implements Runnable{
 			menu.render(g);
 		}
 		g.setFont(new Font("arial", 0, 12));
-		g.drawString("FPS: " + frames, 900, 15);
+		g.drawString("FPS: " + frames, 3, 680);
 		g.dispose();
 		bs.show();
 	}

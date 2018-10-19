@@ -11,6 +11,7 @@ public class Menu extends MouseAdapter {
 	private Handler handler;
 	private Random r = new Random();
 	public boolean toggleTrails = true;
+	public static boolean multiplayer = false;
 	int timer = 10;
 	public Menu(Game game, Handler handler) {
 		this.handler = handler;
@@ -51,7 +52,7 @@ public class Menu extends MouseAdapter {
 		if(timer <= 0) {
 			if (Game.gameState == STATE.Help) {
 				//back button
-				if (mouseOver(mx, my, 380, 450, 200, 64)) {
+				if (mouseOver(mx, my, 380, 550, 200, 64)) {
 					Game.gameState = STATE.Menu;
 					return;
 				}
@@ -63,20 +64,44 @@ public class Menu extends MouseAdapter {
 						toggleTrails = true;
 					}
 				}
+				if(mouseOver(mx, my, 380, 450, 200, 64)) {
+					if(multiplayer == false) {
+						 multiplayer = true;
+					}
+					else if(multiplayer == true) {
+						multiplayer = false;
+					}
+				}
 			}
 			if(Game.gameState == STATE.Select) {
 				if (mouseOver(mx, my, 380, 250, 200, 64)) {
 					Game.gameState = STATE.Game;
-					handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
-					handler.clearAll();
-					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					if(multiplayer == false) {
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.clearAll();
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					}
+					else if(multiplayer == true) {
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.clearAll();
+						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					}
 					game.diff = 0;
 				}
 				if (mouseOver(mx, my, 380, 350, 200, 64)) {
 					Game.gameState = STATE.Game;
-					handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
-					handler.clearAll();
-					handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					if(multiplayer == false) {
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.clearAll();
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					}
+					else if(multiplayer == true) {
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.clearAll();
+						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
+					}
 					game.diff = 1;
 				}
 				
@@ -132,16 +157,26 @@ public class Menu extends MouseAdapter {
 			if(toggleTrails == true) {
 				g.setColor(Color.white);
 				g.drawRect(380, 350, 200, 64);
-				g.drawString("Trials: On", 410, 390);
+				g.drawString("Trails: On", 410, 390);
 			}
 			else if(toggleTrails == false) {
 				g.setColor(Color.white);
 				g.drawRect(380, 350, 200, 64);
 				g.drawString("Trails: Off", 410, 390);
 			}
+			if(multiplayer == false) {
+				g.setColor(Color.white);
+				g.drawRect(380, 450, 200, 64);
+				g.drawString("Singleplayer", 393, 490);
+			}
+			else if(multiplayer == true) {
+				g.setColor(Color.white);
+				g.drawRect(380, 450, 200, 64);
+				g.drawString("2 players", 415, 490);
+			}
 			g.setColor(Color.white);
-			g.drawRect(380, 450, 200, 64);
-			g.drawString("Back", 445, 490);
+			g.drawRect(380, 550, 200, 64);
+			g.drawString("Back", 445, 590);
 		}
 		else if(Game.gameState == STATE.Select) {
 			Font fnt = new Font("arial", 1, 50);

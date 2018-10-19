@@ -4,6 +4,7 @@ import java.awt.Graphics;
 public class HUD {
 	public static int bounds = 0;
 	public static float HEALTH = 100;
+	public static float HEALTH2 = 100;
 	private float greenValue = 255;	
 	public static int score = 0;
 	public static int level = 1;
@@ -20,6 +21,14 @@ public class HUD {
 		g.fillRect((int)15, (int)15, (int)HEALTH * 2, (int)32);
 		g.setColor(Color.white);
 		g.drawRect(15, 15, 200 + bounds, 32);
+		if(Menu.multiplayer == true) {
+			g.setColor(Color.gray);
+			g.fillRect(Game.WIDTH - (220 + bounds), 15, 200 + bounds, 32);
+			g.setColor(new Color(75, (int)greenValue, 0));
+			g.fillRect((int)Game.WIDTH - (220 + bounds), (int)15, (int)HEALTH2 * 2, (int)32);
+			g.setColor(Color.white);
+			g.drawRect(Game.WIDTH - (220 + bounds), 15, 200 + bounds, 32);
+		}
 		g.drawString("Score: " + score, 15, 64);
 		g.drawString("Level: " + level, 15, 80);
 		g.drawString("Press space for shop", 15, 94);

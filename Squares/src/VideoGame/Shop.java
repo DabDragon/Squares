@@ -43,8 +43,19 @@ public class Shop extends MouseAdapter{
 					HUD.score -= B1;
 					B1 += 2000;
 					HUD.bounds += 20;
-					HUD.HEALTH = (100 + (HUD.bounds/2));
-					itemsBought++;
+					if(Menu.multiplayer == false) {
+						HUD.HEALTH = (100 + (HUD.bounds/2));
+						itemsBought++;
+					}
+					else if(Menu.multiplayer == true) {
+						if(HUD.HEALTH > 0) {
+							HUD.HEALTH = (100 + (HUD.bounds/2));
+						}
+						if(HUD.HEALTH2 > 0) {
+							HUD.HEALTH2 = (100 + (HUD.bounds/2));
+						}
+						itemsBought++;
+					}
 				}
 			}
 		}
@@ -62,8 +73,19 @@ public class Shop extends MouseAdapter{
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B3) {
 					HUD.score -= B3;
-					HUD.HEALTH = (100 + (HUD.bounds/2));
-					itemsBought++;
+					if(Menu.multiplayer == false) {
+						HUD.HEALTH = (100 + (HUD.bounds/2));
+						itemsBought++;
+					}
+					else if(Menu.multiplayer == true) {
+						if(HUD.HEALTH > 0) {
+							HUD.HEALTH = (100 + (HUD.bounds/2));
+						}
+						if(HUD.HEALTH2 > 0) {
+							HUD.HEALTH2 = (100 + (HUD.bounds/2));
+						}
+						itemsBought++;
+					}
 				}
 			}
 		}
