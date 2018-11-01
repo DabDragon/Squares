@@ -42,7 +42,6 @@ public class Player extends GameObject{
 	}
 	public void render(Graphics g) {
 		g.setColor(Color.white);
-		if(HUD.HEALTH <= 0) g.setColor(Color.black);
 		g.fillRect((int)x, (int)y, 32, 32);
 	}
 }

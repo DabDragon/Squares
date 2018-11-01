@@ -91,6 +91,24 @@ public class Game extends Canvas implements Runnable{
 				}
 			}
 			if(Menu.multiplayer == true) {
+				if(HUD.HEALTH <= 0) {
+					for (int i = 0; i < handler.object.size(); i++) {
+			            GameObject tempObject = handler.object.get(i);
+			            if(tempObject.getId() == ID.Player) {
+			            	handler.removeObject(tempObject);
+			            	i--;
+			            }
+			        }
+				}
+				if(HUD.HEALTH2 <= 0) {
+					for (int i = 0; i < handler.object.size(); i++) {
+			            GameObject tempObject = handler.object.get(i);
+			            if(tempObject.getId() == ID.Player2) {
+			            	handler.removeObject(tempObject);
+			            	i--;
+			            }
+			        }
+				}
 				if(HUD.HEALTH <= 0 && HUD.HEALTH2 <= 0) {
 					gameState = STATE.End;
 					handler.object.clear();
