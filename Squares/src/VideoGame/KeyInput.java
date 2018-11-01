@@ -1,9 +1,12 @@
 package VideoGame;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import VideoGame.Game.STATE;
+
 public class KeyInput extends KeyAdapter{
 	private Handler handler;
+	
 	private boolean[] keyDown = new boolean[4];
 	public KeyInput(Handler handler) {
 		this.handler = handler;	
@@ -12,6 +15,7 @@ public class KeyInput extends KeyAdapter{
 		keyDown[2] = false;
 		keyDown[3] = false;
 	}
+	
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();	
 		for(int i = 0; i < handler.object.size(); i++) {
@@ -50,8 +54,27 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_D) {tempObject.setVelX(-handler.speed); keyDown[2] = true;}
 				if(key == KeyEvent.VK_A) {tempObject.setVelX(handler.speed); keyDown[3] = true;}
 			}
+			if(tempObject.getId() == ID.ReversePlayer2) {
+				if(key == KeyEvent.VK_UP) {tempObject.setVelY(handler.speed); keyDown[0] = true;}
+				if(key == KeyEvent.VK_DOWN) {tempObject.setVelY(-handler.speed); keyDown[1] = true;}
+				if(key == KeyEvent.VK_RIGHT) {tempObject.setVelX(-handler.speed); keyDown[2] = true;}
+				if(key == KeyEvent.VK_LEFT) {tempObject.setVelX(handler.speed); keyDown[3] = true;}
+			}
+			if(tempObject.getId() == ID.MirrorXPlayer2) {
+				if(key == KeyEvent.VK_UP) {tempObject.setVelY(handler.speed); keyDown[0] = true;}
+				if(key == KeyEvent.VK_DOWN) {tempObject.setVelY(-handler.speed); keyDown[1] = true;}
+				if(key == KeyEvent.VK_RIGHT) {tempObject.setVelX(handler.speed); keyDown[2] = true;}
+				if(key == KeyEvent.VK_LEFT) {tempObject.setVelX(-handler.speed); keyDown[3] = true;}
+			}
+			if(tempObject.getId() == ID.MirrorYPlayer2) {
+				if(key == KeyEvent.VK_UP) {tempObject.setVelY(-handler.speed); keyDown[0] = true;}
+				if(key == KeyEvent.VK_DOWN) {tempObject.setVelY(handler.speed); keyDown[1] = true;}
+				if(key == KeyEvent.VK_RIGHT) {tempObject.setVelX(-handler.speed); keyDown[2] = true;}
+				if(key == KeyEvent.VK_LEFT) {tempObject.setVelX(handler.speed); keyDown[3] = true;}
+			}
 		}
 	}
+	
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		
@@ -67,7 +90,7 @@ public class KeyInput extends KeyAdapter{
 				if(!keyDown[0] && !keyDown[1]) tempObject.setVelY(0);
 				if(!keyDown[2] && !keyDown[3]) tempObject.setVelX(0);
 			}
-			if(tempObject.getId() == ID.Player2) {
+			if(tempObject.getId() == ID.Player2 || tempObject.getId() == ID.ReversePlayer2 || tempObject.getId() == ID.MirrorXPlayer2 || tempObject.getId() == ID.MirrorYPlayer2) {
 				if(key == KeyEvent.VK_UP) keyDown[0] = false;
 				if(key == KeyEvent.VK_DOWN) keyDown[1] = false;
 				if(key == KeyEvent.VK_RIGHT) keyDown[2] = false;

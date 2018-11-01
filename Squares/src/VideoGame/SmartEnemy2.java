@@ -4,18 +4,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class SmartEnemy extends GameObject{
+public class SmartEnemy2 extends GameObject{
 	
 	private Handler handler;
 	private GameObject player;
 	private Menu menu;
 	
-	public SmartEnemy(int x, int y, ID id, Handler handler, Menu menu) {
+	public SmartEnemy2(int x, int y, ID id, Handler handler, Menu menu) {
 		super(x, y, id);
 		this.handler = handler;
 		this.menu = menu;
 		for(int i = 0; i < handler.object.size(); i++) {
-			if(handler.object.get(i).getId() == ID.Player) player = handler.object.get(i);
+			if(handler.object.get(i).getId() == ID.Player2) player = handler.object.get(i);
 		}
 	}
 	

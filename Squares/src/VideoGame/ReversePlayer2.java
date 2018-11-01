@@ -4,12 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class MirrorYPlayer extends GameObject{
+public class ReversePlayer2 extends GameObject{
 	
 	Handler handler;
-	Menu menu;
+	Menu menu;	
 	
-	public MirrorYPlayer(int x, int y, ID id, Handler handler, Menu menu) {
+	public ReversePlayer2(int x, int y, ID id, Handler handler, Menu menu) {
 		super(x, y, id);
 		this.handler = handler;
 		this.menu = menu;
