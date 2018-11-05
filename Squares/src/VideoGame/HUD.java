@@ -1,14 +1,20 @@
 package VideoGame;
+
 import java.awt.Color;
 import java.awt.Graphics;
+
 public class HUD {
 	public static int bounds = 0;
+	
 	public static float HEALTH = 100;
-	public static float HEALTH2 = 100;
+	public static float HEALTH2 = 0;
+	
 	private float greenValue = 255;	
 	private float greenValue2 = 255;
+	
 	public static int score = 0;
 	public static int level = 1;
+	
 	public void tick() {
 		HEALTH = Game.clamp(HEALTH, 0, 100+(bounds/2));
 		HEALTH2 = Game.clamp(HEALTH2, 0, 100+(bounds/2));
@@ -18,6 +24,7 @@ public class HUD {
 		greenValue2 = Game.clamp(greenValue2, 0, 255);
 		score++;
 	}
+	
 	public void render(Graphics g) {
 		g.setColor(Color.gray);
 		g.fillRect(15, 15, 200 + bounds, 32);

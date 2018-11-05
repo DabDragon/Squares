@@ -81,6 +81,7 @@ public class Menu extends MouseAdapter {
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
 					else if(multiplayer == true) {
+						HUD.HEALTH2 = 100;
 						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
 						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));

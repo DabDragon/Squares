@@ -1,22 +1,30 @@
 package VideoGame;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
+
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 4074938860981483192L;
+	
 	public static final int WIDTH = 960, HEIGHT = WIDTH / 12 * 9;
 	private Thread thread;
+	
 	private boolean running = false;
+	
 	public int diff = 0;
+	
 	private Handler handler;
 	private HUD hud;
 	private Spawn spawner;
 	private Menu menu;
 	private Shop shop;
+	
 	Random r = new Random();
+	
 	public enum STATE {
 		Menu,
 		Select,
@@ -26,6 +34,7 @@ public class Game extends Canvas implements Runnable{
 		Finish,
 		End
 	};
+	
 	public static STATE gameState = STATE.Menu;
 	public Game() {
 		handler = new Handler();
@@ -38,11 +47,13 @@ public class Game extends Canvas implements Runnable{
 		new Window(WIDTH, HEIGHT, "Squares", this);
 		spawner = new Spawn(handler, menu, this);
 	}
+	
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
+	
 	public synchronized void stop() {
 		try {
 			thread.join();
@@ -52,6 +63,7 @@ public class Game extends Canvas implements Runnable{
 			e.printStackTrace();
 		}
 	}
+	
 	public int frames = 0;
 	public void run() {
 		this.requestFocus();
@@ -120,6 +132,7 @@ public class Game extends Canvas implements Runnable{
 			menu.tick();
 		}
 	}
+	
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
@@ -145,6 +158,7 @@ public class Game extends Canvas implements Runnable{
 		g.dispose();
 		bs.show();
 	}
+
 	public static float clamp(float var, float min, float max) {
 		if(var >= max) 
 			return var = max;
@@ -153,6 +167,7 @@ public class Game extends Canvas implements Runnable{
 		else 
 			return var;
 	}
+	
 	public static void main(String args[]) {
 		new Game();
 	} 
