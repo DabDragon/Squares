@@ -611,7 +611,7 @@ public class Spawn {
 					handler.addObject(new EnemyBoss (Game.WIDTH/2 - 48, -120, ID.EnemyBoss, handler, menu));
 					handler.addObject(new OppositeEnemyBoss (Game.WIDTH/2 - 48, -120, ID.EnemyBoss, handler, menu));
 				}
-				else if (HUD.level == 31) {
+				else if (HUD.level == 33) {
 					handler.clearAll();
 					int choice = r.nextInt(10);
 					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
@@ -681,144 +681,7 @@ public class Spawn {
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
 					else if(choice == 10) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
 				}
-				else if (HUD.level == 32) {
-					int choice = r.nextInt(10);
-					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
-					else if(choice == 1) handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 2) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-							handler.addObject(new SmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new SmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-					}
-					else if(choice == 3) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
-					else if(choice == 4) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 5) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new HardSmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-							handler.addObject(new HardSmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new HardSmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new HardSmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-					}
-					else if(choice == 6) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
-						}
-					}
-					else if(choice == 7) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
-						}
-					}
-					else if(choice == 8) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
-						}
-					}
-					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 10) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-				}
-				else if (HUD.level == 33) {
-					int choice = r.nextInt(10);
-					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
-					else if(choice == 1) handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 2) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-							handler.addObject(new SmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new SmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-					}
-					else if(choice == 3) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
-					else if(choice == 4) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 5) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new HardSmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-							handler.addObject(new HardSmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new HardSmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new HardSmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
-						}
-					}
-					else if(choice == 6) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
-						}
-					}
-					else if(choice == 7) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
-						}
-					}
-					else if(choice == 8) {
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
-						}
-						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-						}
-						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
-						}
-					}
-					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-					else if(choice == 10) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
-				}
+				
 				else if (HUD.level == 34) {
 					int choice = r.nextInt(10);
 					if(choice == 0) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
@@ -1236,7 +1099,6 @@ public class Spawn {
 				else if (HUD.level == 40) {
 					handler.clearAll();
 					handler.addObject(new CenterEnemyBoss (Game.WIDTH/2 - 48, -120, ID.EnemyBoss, handler, menu));
-
 				}
 				else if (HUD.level == 43) {
 					handler.clearAll();
