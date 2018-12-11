@@ -1,20 +1,25 @@
 package VideoGame;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 public class Shop extends MouseAdapter{
 	Handler handler;
 	HUD hud;
+	
 	private int B1 = 2000;
 	private int B2 = 2000;
 	private int B3 = 2000;
 	public static int itemsBought = 0;
+	
 	public Shop(Handler handler, HUD hud) {
 		this.handler = handler;
 		this.hud = hud;
 	}
+	
 	public void render(Graphics g) {
 		g.setColor(Color.white);
 		g.setFont(new Font("arial", 0, 48));
@@ -34,6 +39,7 @@ public class Shop extends MouseAdapter{
 		g.drawString("Items bought: " + itemsBought, 300, 332);
 		g.drawString("Press Space to go back to the game.", 300, 364);
 	}
+	
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
@@ -59,6 +65,7 @@ public class Shop extends MouseAdapter{
 				}
 			}
 		}
+		
 		if(mx >= 435 && mx <= 535) {
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B2) {
@@ -69,6 +76,7 @@ public class Shop extends MouseAdapter{
 				}
 			}
 		}
+		
 		if(mx >= 600 && mx <= 700) {
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B3) {
@@ -77,6 +85,7 @@ public class Shop extends MouseAdapter{
 						HUD.HEALTH = (100 + (HUD.bounds/2));
 						itemsBought++;
 					}
+					
 					else if(Menu.multiplayer == true) {
 						if(HUD.HEALTH > 0) {
 							HUD.HEALTH = (100 + (HUD.bounds/2));
