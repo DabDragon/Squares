@@ -1,4 +1,5 @@
 package VideoGame;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -6,19 +7,24 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 import VideoGame.Game.STATE;
+
 public class Menu extends MouseAdapter {	
 	private Game game;
 	private Handler handler;
 	private Random r = new Random();
+	
 	public boolean toggleTrails = true;
 	public static boolean multiplayer = false;
+	
 	int timer = 10;
 	public Menu(Game game, Handler handler) {
 		this.handler = handler;
 		this.game = game;	
 	}
+	
 	public void mousePressed(MouseEvent e) {
 	}
+	
 	public void mouseReleased(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
@@ -37,6 +43,7 @@ public class Menu extends MouseAdapter {
 				System.exit(1);
 			}
 		}
+		
 		if(Game.gameState == STATE.End || Game.gameState == STATE.Finish) {
 			if (mouseOver(mx, my, 380, 450, 200, 64)) {
 				Game.gameState = STATE.Menu;
@@ -49,6 +56,7 @@ public class Menu extends MouseAdapter {
 				HUD.bounds = 0;
 			}
 		}
+		
 		if(timer <= 0) {
 			if (Game.gameState == STATE.Help) {
 				//back button
@@ -56,23 +64,28 @@ public class Menu extends MouseAdapter {
 					Game.gameState = STATE.Menu;
 					return;
 				}
+				
 				if(mouseOver(mx, my, 380, 350, 200, 64)) {
 					if(toggleTrails == true) {
 						toggleTrails = false;
 					}
+					
 					else if(toggleTrails == false) {
 						toggleTrails = true;
 					}
 				}
+				
 				if(mouseOver(mx, my, 380, 450, 200, 64)) {
 					if(multiplayer == false) {
 						 multiplayer = true;
 					}
+					
 					else if(multiplayer == true) {
 						multiplayer = false;
 					}
 				}
 			}
+			
 			if(Game.gameState == STATE.Select) {
 				if (mouseOver(mx, my, 380, 250, 200, 64)) {
 					Game.gameState = STATE.Game;
@@ -80,6 +93,7 @@ public class Menu extends MouseAdapter {
 						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
+					
 					else if(multiplayer == true) {
 						HUD.HEALTH2 = 100;
 						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
@@ -88,12 +102,14 @@ public class Menu extends MouseAdapter {
 					}
 					game.diff = 0;
 				}
+				
 				if (mouseOver(mx, my, 380, 350, 200, 64)) {
 					Game.gameState = STATE.Game;
 					if(multiplayer == false) {
 						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
+					
 					else if(multiplayer == true) {
 						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
 						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
@@ -118,10 +134,12 @@ public class Menu extends MouseAdapter {
 		}
 		else return false;
 	}
+	
 	public void tick() {
 		if(Game.gameState == STATE.Help || Game.gameState == STATE.Select)timer--;
 		if(Game.gameState == STATE.Menu) timer = 10; 
 	}
+	
 	public void render(Graphics g) {
 		if(Game.gameState == STATE.Menu) {
 			Font fnt = new Font("arial", 1, 50);
@@ -140,6 +158,7 @@ public class Menu extends MouseAdapter {
 			g.drawRect(380, 450, 200, 64);
 			g.drawString("Quit", 445, 490);
 		}
+		
 		else if (Game.gameState == STATE.Help) {
 			Font fnt = new Font("arial", 1, 50);
 			Font fnt2 = new Font("arial", 1, 30);
@@ -156,16 +175,19 @@ public class Menu extends MouseAdapter {
 				g.drawRect(380, 350, 200, 64);
 				g.drawString("Trails: On", 410, 390);
 			}
+			
 			else if(toggleTrails == false) {
 				g.setColor(Color.white);
 				g.drawRect(380, 350, 200, 64);
 				g.drawString("Trails: Off", 410, 390);
 			}
+			
 			if(multiplayer == false) {
 				g.setColor(Color.white);
 				g.drawRect(380, 450, 200, 64);
 				g.drawString("Singleplayer", 393, 490);
 			}
+			
 			else if(multiplayer == true) {
 				g.setColor(Color.white);
 				g.drawRect(380, 450, 200, 64);
@@ -175,6 +197,7 @@ public class Menu extends MouseAdapter {
 			g.drawRect(380, 550, 200, 64);
 			g.drawString("Back", 445, 590);
 		}
+		
 		else if(Game.gameState == STATE.Select) {
 			Font fnt = new Font("arial", 1, 50);
 			Font fnt2 = new Font("arial", 1, 30);
@@ -192,6 +215,7 @@ public class Menu extends MouseAdapter {
 			g.drawRect(380, 450, 200, 64);
 			g.drawString("Back", 445, 490);
 		}
+		
 		else if (Game.gameState == STATE.End) {
 			Font fnt = new Font("arial", 1, 50);
 			Font fnt2 = new Font("arial", 1, 30);
@@ -204,6 +228,7 @@ public class Menu extends MouseAdapter {
 			g.drawRect(380, 450, 200, 64);
 			g.drawString("Back", 445, 490);
 		}
+		
 		else if (Game.gameState == STATE.Finish) {
 			Font fnt = new Font("arial", 1, 50);
 			Font fnt2 = new Font("arial", 1, 30);
@@ -219,6 +244,7 @@ public class Menu extends MouseAdapter {
 				if(Shop.itemsBought == 0) {
 					g.drawString("Wait, did you hack!?!", 100, 344);
 				}
+				
 				else {
 					g.drawString("You should play some other bullet hell game ", 100, 344);
 					g.drawString("that is better than this one.", 100, 392);
