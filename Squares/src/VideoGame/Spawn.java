@@ -1,12 +1,17 @@
 package VideoGame;
+
 import java.util.Random;
 import VideoGame.Game.STATE;
+
 public class Spawn {
+	
 	private Handler handler;
 	private Random r = new Random();
 	private Menu menu;
 	private Game game;
+	
 	public static int scoreKeep = 0;
+	
 	public Spawn(Handler handler, Menu menu, Game game) {
 		this.handler = handler;
 		this.menu = menu;
@@ -37,14 +42,14 @@ public class Spawn {
 				else if(HUD.level == 6) handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 				else if(HUD.level == 7) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-						handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+						handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+						handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 					}
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-						handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+						handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 					}
 					if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+						handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 					}
 				}
 				else if(HUD.level == 8) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -70,14 +75,14 @@ public class Spawn {
 				}
 				else if(HUD.level == 14) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 					}
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 					}
 					if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 					}
 				}
 				else if(HUD.level == 15) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -93,7 +98,7 @@ public class Spawn {
 						handler.addObject(new HardSmartEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy2, handler, menu));
 					}
 				}
-				else if(HUD.level == 17) handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+				else if(HUD.level == 17) handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 				else if(HUD.level == 18) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
 						handler.addObject(new HardSmartEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.SmartEnemy, handler, menu));
@@ -108,14 +113,14 @@ public class Spawn {
 				}
 				else if(HUD.level == 19) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 					}
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 					}
 					if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 					}
 				}
 				else if (HUD.level == 20) {
@@ -155,38 +160,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -224,38 +229,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -293,38 +298,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -362,38 +367,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -431,38 +436,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -500,38 +505,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -569,38 +574,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -644,38 +649,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -714,38 +719,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -783,38 +788,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -852,38 +857,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -921,38 +926,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -990,38 +995,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1059,38 +1064,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1133,38 +1138,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1202,38 +1207,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1272,38 +1277,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1341,38 +1346,38 @@ public class Spawn {
 					}
 					else if(choice == 6) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu));
+							handler.addObject(new ReversePlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu));
+							handler.addObject(new ReversePlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.ReversePlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 7) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 8) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 9) handler.addObject(new FastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1392,14 +1397,14 @@ public class Spawn {
 				if(HUD.level == 2) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
 				else if(HUD.level == 3) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 					}
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+						handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 					}
 					if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+						handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 					}
 				}
 				else if(HUD.level == 4) handler.addObject(new HardFastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1417,14 +1422,14 @@ public class Spawn {
 				}
 				else if(HUD.level == 6) {
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 					}
 					if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+						handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 					}
 					if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+						handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 					}
 				}
 				else if(HUD.level == 7) handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, menu));
@@ -1464,26 +1469,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));					
@@ -1506,26 +1511,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));					
@@ -1548,26 +1553,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1590,26 +1595,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1632,26 +1637,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1674,26 +1679,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1716,26 +1721,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1764,26 +1769,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1806,26 +1811,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1848,26 +1853,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1890,26 +1895,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1932,26 +1937,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -1974,26 +1979,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2016,26 +2021,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2063,26 +2068,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2106,26 +2111,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2148,26 +2153,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2190,26 +2195,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));
@@ -2232,26 +2237,26 @@ public class Spawn {
 					}
 					else if(choice == 3) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu));
+							handler.addObject(new MirrorXPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu));
+							handler.addObject(new MirrorXPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorXPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 4) {
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 						if(HUD.HEALTH > 0 && HUD.HEALTH2 <= 0) {
-							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu));
+							handler.addObject(new MirrorYPlayer(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer, handler, menu, game));
 						}
 						if(HUD.HEALTH <= 0 && HUD.HEALTH2 > 0) {
-							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu));
+							handler.addObject(new MirrorYPlayer2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.MirrorYPlayer2, handler, menu, game));
 						}
 					}
 					else if(choice == 5) handler.addObject(new HardFastEnemy2(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.FastEnemy, handler, menu));

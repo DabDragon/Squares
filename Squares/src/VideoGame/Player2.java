@@ -7,10 +7,12 @@ import java.awt.Rectangle;
 public class Player2 extends GameObject{
 	Handler handler;
 	Menu menu;
-	public Player2(int x, int y, ID id, Handler handler, Menu menu) {
+	Game game;
+	public Player2(int x, int y, ID id, Handler handler, Menu menu, Game game) {
 		super(x, y, id);
 		this.handler = handler;
 		this.menu = menu;
+		this.game = game;
 	}
 	
 	public Rectangle getBounds() {
@@ -37,7 +39,8 @@ public class Player2 extends GameObject{
 			GameObject tempObject = handler.object.get(i);
 			if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy || tempObject.getId() == ID.ReversePlayer || tempObject.getId() == ID.MirrorXPlayer || tempObject.getId() == ID.MirrorYPlayer) {
 				if(getBounds().intersects(tempObject.getBounds())) {
-					HUD.HEALTH2--;
+					if(game.diff == 0)HUD.HEALTH2--;
+					else if(game.diff == 1)HUD.HEALTH2 -= 2;
 				}
 			}
 			if(tempObject.getId() == ID.EnemyBoss) {

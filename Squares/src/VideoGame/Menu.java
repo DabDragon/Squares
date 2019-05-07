@@ -90,14 +90,14 @@ public class Menu extends MouseAdapter {
 				if (mouseOver(mx, my, 380, 250, 200, 64)) {
 					Game.gameState = STATE.Game;
 					if(multiplayer == false) {
-						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this, game));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
 					
 					else if(multiplayer == true) {
 						HUD.HEALTH2 = 100;
-						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
-						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this, game));
+						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this, game));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
 					game.diff = 0;
@@ -106,13 +106,13 @@ public class Menu extends MouseAdapter {
 				if (mouseOver(mx, my, 380, 350, 200, 64)) {
 					Game.gameState = STATE.Game;
 					if(multiplayer == false) {
-						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this, game));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
 					
 					else if(multiplayer == true) {
-						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this));
-						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this));
+						handler.addObject(new Player(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player, handler, this, game));
+						handler.addObject(new Player2(Game.WIDTH/2-32, Game.HEIGHT/2-32, ID.Player2, handler, this, game));
 						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler, this));
 					}
 					game.diff = 1;
