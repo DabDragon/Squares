@@ -25,7 +25,7 @@ public class MirrorXPlayer2 extends GameObject{
 		x += velX;
 		y += velY;	
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
-		y = Game.clamp(y, 0, Game.HEIGHT - 64);	
+		y = Game.clamp(y, 0, Game.HEIGHT - 62);	
 		if(menu.toggleTrails == true) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.gray, 32, 32, 0.08f, handler));
 		if(game.diff == 1) collision();
 	}

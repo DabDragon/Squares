@@ -19,7 +19,7 @@ public class Player extends GameObject{
 		x += velX;
 		y += velY;
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
-		y = Game.clamp(y, 0, Game.HEIGHT - 67);
+		y = Game.clamp(y, 0, Game.HEIGHT - 62);
 		if(menu.toggleTrails == true) {
 			if(HUD.HEALTH <= 0) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.black, 32, 32, 0.08f, handler));
 			else handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.08f, handler));

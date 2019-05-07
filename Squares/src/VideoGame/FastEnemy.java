@@ -19,7 +19,7 @@ public class FastEnemy extends GameObject{
 		x += velX;
 		y += velY;
 		if(y <= 0 || y >= Game.HEIGHT - 48) velY *= -1;
-		if(x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
+		if(x <= 0 || x >= Game.WIDTH - 20) velX *= -1;
 		if(menu.toggleTrails == true) handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.cyan, 16, 16, 0.02f, handler));
 	}
 	public void render(Graphics g) {
