@@ -54,6 +54,9 @@ public class Menu extends MouseAdapter {
 				handler.speed = 5;
 				HUD.HEALTH = 100;
 				HUD.bounds = 0;
+				Shop.B1 = 2000;
+				Shop.B2 = 2000;
+				Shop.B3 = 2000;
 			}
 		}
 		

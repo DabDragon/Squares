@@ -10,10 +10,10 @@ public class Shop extends MouseAdapter{
 	Handler handler;
 	HUD hud;
 	
-	private int B1 = 2000;
-	private int B2 = 2000;
-	private int B3 = 2000;
 	public static int itemsBought = 0;
+	public static int B1 = 2000;
+	public static int B2 = 2000;
+	public static int B3 = 2000;
 	
 	public Shop(Handler handler, HUD hud) {
 		this.handler = handler;
@@ -52,7 +52,7 @@ public class Shop extends MouseAdapter{
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B1) {
 					HUD.score -= B1;
-					B1 *= (itemsBought + 1);
+					B1 += 2000;
 					HUD.bounds += 20;
 					if(Menu.multiplayer == false) {
 						HUD.HEALTH = (100 + (HUD.bounds/2));
@@ -75,7 +75,7 @@ public class Shop extends MouseAdapter{
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B2) {
 					HUD.score -= B2;
-					B2 *= (itemsBought + 1);
+					B2 += 2000;
 					handler.speed++;
 					itemsBought++;
 				}
@@ -86,7 +86,7 @@ public class Shop extends MouseAdapter{
 			if(my >= 100 && my <= 180) {
 				if(HUD.score >= B3) {
 					HUD.score -= B3;
-					B3 *= (itemsBought + 1);
+					B3 += 2000;
 					if(Menu.multiplayer == false) {
 						HUD.HEALTH = (100 + (HUD.bounds/2));
 						itemsBought++;
