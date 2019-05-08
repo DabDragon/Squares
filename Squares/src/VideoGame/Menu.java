@@ -63,12 +63,12 @@ public class Menu extends MouseAdapter {
 		if(timer <= 0) {
 			if (Game.gameState == STATE.Help) {
 				//back button
-				if (mouseOver(mx, my, 380, 550, 200, 64)) {
+				if (mouseOver(mx, my, 700, 550, 200, 64)) {
 					Game.gameState = STATE.Menu;
 					return;
 				}
 				
-				if(mouseOver(mx, my, 380, 350, 200, 64)) {
+				if(mouseOver(mx, my, 700, 350, 200, 64)) {
 					if(toggleTrails == true) {
 						toggleTrails = false;
 					}
@@ -78,7 +78,7 @@ public class Menu extends MouseAdapter {
 					}
 				}
 				
-				if(mouseOver(mx, my, 380, 450, 200, 64)) {
+				if(mouseOver(mx, my, 700, 450, 200, 64)) {
 					if(multiplayer == false) {
 						 multiplayer = true;
 					}
@@ -170,35 +170,36 @@ public class Menu extends MouseAdapter {
 			g.drawString("Options", 380, 100);
 			g.setFont(fnt2);
 			g.drawString("Use WASD to move the player.  Don't get hit by the enemies.", 50, 164);
-			g.drawString("Press space to go to the shop. Their are 50 levels on", 50, 216);
-			g.drawString("Normal mode, and their are 40 levels on Hard mode, but it", 50, 264);
-			g.drawString("spawns hard enemies only.", 50, 316);
+			g.drawString("Press space to go to the shop.", 50, 216);
+			g.drawString("Normal mode - 50 levels, all enemies", 50, 264);
+			g.drawString("Hard mode - 40 levels, hard enemies only, and reverse players", 50, 316);
+			g.drawString("have hurtboxes", 50, 364);
 			if(toggleTrails == true) {
 				g.setColor(Color.white);
-				g.drawRect(380, 350, 200, 64);
-				g.drawString("Trails: On", 410, 390);
+				g.drawRect(700, 350, 200, 64);
+				g.drawString("Trails: On", 730, 390);
 			}
 			
 			else if(toggleTrails == false) {
 				g.setColor(Color.white);
-				g.drawRect(380, 350, 200, 64);
-				g.drawString("Trails: Off", 410, 390);
+				g.drawRect(700, 350, 200, 64);
+				g.drawString("Trails: Off", 730, 390);
 			}
 			
 			if(multiplayer == false) {
 				g.setColor(Color.white);
-				g.drawRect(380, 450, 200, 64);
-				g.drawString("Singleplayer", 393, 490);
+				g.drawRect(700, 450, 200, 64);
+				g.drawString("Singleplayer", 713, 490);
 			}
 			
 			else if(multiplayer == true) {
 				g.setColor(Color.white);
-				g.drawRect(380, 450, 200, 64);
-				g.drawString("2 players", 415, 490);
+				g.drawRect(700, 450, 200, 64);
+				g.drawString("2 players", 735, 490);
 			}
 			g.setColor(Color.white);
-			g.drawRect(380, 550, 200, 64);
-			g.drawString("Back", 445, 590);
+			g.drawRect(700, 550, 200, 64);
+			g.drawString("Back", 765, 590);
 		}
 		
 		else if(Game.gameState == STATE.Select) {
