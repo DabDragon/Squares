@@ -65,7 +65,7 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
-	public int frames = 0;
+	private int frames = 0;
 	public void run() {
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -141,6 +141,7 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
+		
 		g.setColor(Color.black);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		if(gameState == STATE.Game) {
@@ -156,6 +157,7 @@ public class Game extends Canvas implements Runnable{
 		}
 		g.setFont(new Font("arial", 0, 12));
 		g.drawString("FPS: " + frames, 3, 680);
+		
 		g.dispose();
 		bs.show();
 	}
